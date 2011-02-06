@@ -20,3 +20,5 @@ sub runtime {
 	$self->{RUNTIME} = $_[0] if $_[0];
 	return $self->{RUNTIME};
 }
+
+7;

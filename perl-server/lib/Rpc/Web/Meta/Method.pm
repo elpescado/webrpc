@@ -19,4 +19,9 @@ sub static {
 	return 1;
 }
 
+
+sub name {
+	return shift->{NAME};
+}
+
 1;

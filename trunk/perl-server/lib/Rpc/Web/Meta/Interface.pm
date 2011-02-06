@@ -16,6 +16,11 @@ sub init {
 }
 
 
+sub name {
+	return shift->{NAME};
+}
+
+
 sub methods {
 	my $self = shift;
 
@@ -33,6 +38,20 @@ sub add_method {
 	push @{ $self->{METHODS} }, $method;
 
 	return $method;
+}
+
+
+sub get_method {
+	my $self = shift;
+	my $name = shift;
+
+	for my $m ( @{$self->{METHODS}} ) {
+		if ($m->name eq $name) {
+			return $m;
+		}
+	}
+
+	return;
 }
 
 

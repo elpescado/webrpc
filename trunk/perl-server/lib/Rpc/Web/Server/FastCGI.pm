@@ -118,13 +118,25 @@ sub do_js {
 	my $self = shift;
 	my $request = shift;
 
+	my $rv = $self->backend->generate_js_stubs ();
+
+	$request->respond (
+		$rv,
+		"Content-Type", "application/javascript",
+	);
 }
 
 
-sub do_panel {
+sub do_test {
 	my $self = shift;
 	my $request = shift;
 
+	my $rv = $self->backend->test_panel ();
+
+	$request->respond (
+		$rv,
+		"Content-Type", "text/html",
+	);
 }
 
 

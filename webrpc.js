@@ -85,8 +85,6 @@ WebRpc.PhpError = function ()
 }
 WebRpc.PhpError.prototype.__proto__ = WebRpc.Error.prototype;
 
-throw new WebRpc.PhpError ();
-
 
 
 Ajax.Responders.register({

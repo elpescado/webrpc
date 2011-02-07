@@ -13,7 +13,9 @@ sub compile {
 	my $self = shift;
 	my $interface = shift;
 
-	my $out = "";
+	my $out = 'var RJS_HOME = "http://localhost/test.fcgi";';
+	$out .= "\n\n";
+	$out .= $self->get_common_js;
 	my $jsclass = $interface->{NAME} || $interface->{EXPORT_AS};
 
 	# Output class
@@ -37,6 +39,18 @@ sub compile {
 	}
 
 	return $out;
+}
+
+
+sub get_common_js {
+	my $self = shift;
+
+	open my $fh, '<', '../../webrpc.js' or die "File webrpc.js not found";
+	
+	my @lines = <$fh>;
+	close $fh;
+
+	return join '', @lines;
 }
 
 

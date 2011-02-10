@@ -27,7 +27,7 @@ my $f = new Rpc::Web::ServerFactory;
 my $server = $f->create_instance ();
 
 my $foobar_iface = new Rpc::Web::Meta::Interface ("Foobar");
-my $dupa = $foobar_iface->add_method ("dupa", "arg");
+my $dupa = $foobar_iface->add_method ("test", "arg");
 
 $server->backend->runtime->add_interface ($foobar_iface);
 

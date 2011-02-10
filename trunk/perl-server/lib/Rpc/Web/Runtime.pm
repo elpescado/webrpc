@@ -32,7 +32,7 @@ sub invoke {
 
 	my $interface = $self->lookup_interface ($class_name);
 	my $method    = $self->lookup_method ($interface, $method_name);
-	my $instance  = $self->serializer->unserialize ($obj);
+	my $instance  = $obj ? $self->serializer->unserialize ($obj) : undef;
 	my $args_v    = $self->serializer->unserialize ($args);
 
 	my $rv = $self->proxy->invoke ($interface,

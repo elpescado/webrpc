@@ -20,6 +20,14 @@ sub static {
 }
 
 
+sub arguments {
+	my $self = shift;
+	return wantarray
+		? @{$self->{ARGUMENTS}}
+		:   $self->{ARGUMNETS};
+}
+
+
 sub name {
 	return shift->{NAME};
 }

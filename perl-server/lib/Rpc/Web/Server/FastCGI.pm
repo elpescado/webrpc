@@ -72,11 +72,11 @@ sub _handle {
 	local %ENV = %{$request->params};
 	local $CGI::Q = new CGI::Stateless;
 
-	if (CGI::param ("invoke")) {
+	if (CGI::url_param ("invoke")) {
 		return $self->do_invoke ($request);
-	} elsif (CGI::param ("js")) {
+	} elsif (CGI::url_param ("js")) {
 		return $self->do_js ($request);
-	} elsif (CGI::param ("test")) {
+	} elsif (CGI::url_param ("test")) {
 		return $self->do_test ($request);
 	} 
 
@@ -106,7 +106,6 @@ sub do_invoke {
 			'args'   => $args,
 		);
 	}
-
 	$request->respond (
 		sprintf ($CONTENT, $rv),
 		'X-JSON' => $rv,

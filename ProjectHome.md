@@ -1,0 +1,1 @@
+WebRpc is a framework that allows to expose PHP classes on server to JavaScript code on browser. JavaScript can invoke methods on server-side PHP classes directly. Communication is done asynchronously using AJAX and is fully transparent to programmer. Data interchange format is based on JSON.
